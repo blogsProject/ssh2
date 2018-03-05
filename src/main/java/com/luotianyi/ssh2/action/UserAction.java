@@ -19,7 +19,7 @@ import com.luotianyi.ssh2.service.UserService;
 @Controller
 @ParentPackage("json-default")
 @Scope("singleton")
-@Namespace("/userProcess")
+@Namespace("/userProcess") 
 public class UserAction {
 	@Autowired
 	@Qualifier("userService")
