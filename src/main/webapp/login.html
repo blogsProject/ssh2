@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>登录</title>
+<meta charset="utf-8">
+<script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+</script>
+<meta name="keywords"
+	content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="resources/css/style.css" rel='stylesheet' type='text/css' />
+<script src="resources/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<script>$(document).ready(function(c) {
+	$('.close').on('click', function(c){
+		$('.login-form').fadeOut('slow', function(c){
+	  		$('.login-form').remove();
+		});
+	});	  
+});
+</script>
+	<div class="login-form">
+		<div class="close"></div>
+		<div id="headi" class="head-info">
+			<label id="lb1" class="lbl-1"> </label> <label id="lb2" class="lbl-2">
+			</label> <label id="lb3" class="lbl-3"> </label>
+		</div>
+		<div class="clear"></div>
+		<div class="avtar" style="background-color: rgba(53, 33, 32, 0.7);">
+			<img id="icoImg" src="resources/images/1.png" />
+		</div>
+		<form name="lfrom" method="post"
+			style="background-color: rgba(53, 33, 32, 0.7);">
+			<input name="username" id="userIn" type="text" class="text"
+				placeholder="请输入用户名" onfocus="this.placeholder = '请输入用户名';"
+				onblur="if (this.value == '') {this.placeholder = '用户名不能为空';}"
+				style="color: red;">
+			<div class="key">
+				<input name="password" id="passIn" type="password" value=""
+				 style="color: red;>
+			</div>		
+			</form>
+	<div class="signin">
+				<input id="inLogin" type="button" value="登录">
+			</div>
+			<div class="signin">
+				<input id="inRege" type="button" value="注册">
+			</div>
+	</div>
+	<script type="text/javascript">
+	var lb1 = document.getElementById("lb1");
+	var lb2 = document.getElementById("lb2");
+	var lb3 = document.getElementById("lb3");
+	var icoImg = document.getElementById("icoImg");
+	var login = document.getElementById("inLogin");
+	var regeist = document.getElementById("inRege");
+	login.onclick = function(){
+		var userStr = (document.getElementById("userIn").value).length;
+		var passStr = (document.getElementById("passIn").value).length;
+		if(userStr!="请输入用户名"&&(userStr>=6&&userStr<=18)&&(passStr>=6&&passStr<=18)){
+			$.ajax({
+				type:"post",
+				url:"/userProcess/login",
+				data:{
+					"user.username":$("#userIn").val(),
+					"user.password":$("#passIn").val()
+				},success : function(data){
+					if(data == "1"){
+						alert("用户名不存在");
+					}else if(data == "2"){
+						alert("密码错误");
+					}else{
+						location="index.html";
+					}
+				}
+			});
+		}else{
+			alert("请输入正确的用户名和密码");
+		}
+	}
+	regeist.onclick = function(){
+		window.location.href = "regeist.html";
+	}
+	lb1.onclick = function(){
+		icoImg.src = "resources/images/1.png"
+	}
+	lb2.onclick = function(){
+		icoImg.src = "resources/images/2.png"
+	}
+	lb3.onclick = function(){
+		icoImg.src = "resources/images/3.png"
+	}
+</script>
+</body>
+</html>
