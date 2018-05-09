@@ -30,7 +30,7 @@ public class UserAction {
 	String pagestr;
 	String count;
 	User user;
-
+	//这是一个无用的代码
 	public UserService getUserService() {
 		return userService;
 	}
