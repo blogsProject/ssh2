@@ -19,7 +19,7 @@ import com.luotianyi.ssh2.service.UserService;
 @Controller
 @ParentPackage("json-default")
 @Scope("singleton")
-@Namespace("/userProcess") 
+@Namespace("/userProcess")
 public class UserAction {
 	@Autowired
 	@Qualifier("userService")
@@ -87,8 +87,7 @@ public class UserAction {
 		this.user = user;
 	}
 
-	@Action(value = "/add", results = { @Result(name = { "success" }, location = "/WEB-INF/jsps/"
-			+ ".jsp") })
+	@Action(value = "/add", results = { @Result(name = { "success" }, location = "/WEB-INF/jsps/" + ".jsp") })
 	public String add() {
 		System.out.println(user);
 		if (userService.insert(user) != 0) {
